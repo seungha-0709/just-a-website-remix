@@ -1,4 +1,4 @@
-import Logo from "@/assets/svgs/logo";
+import Logo from "@/assets/svgs/Logo";
 import { hamburger_li, lnb_container } from "@/styles/layout.css";
 
 const Lnb = () => {
