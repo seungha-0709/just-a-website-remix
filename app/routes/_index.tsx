@@ -1,8 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-
 import { getPosts } from "@/utils/posts.server";
 import { PostsOrPages } from "@tryghost/content-api";
-import { useLoaderData } from "@remix-run/react";
 import Success from "@/components/Success";
 import Main from "@/components/Main";
 import Place from "@/components/Place";
@@ -43,7 +40,6 @@ export const loader = async ({ context }) => {
       contentObj: {
         tag: tag.trim(),
         title: title.trim(),
-        text: HTMLParser("<div>" + item.html + "</div>", false),
       },
     };
   });
@@ -58,6 +54,7 @@ export const loader = async ({ context }) => {
     success: posts.filter((post) =>
       post.tags.map((v) => v.name).includes("success")
     ),
+    images: posts.map((post) => post.feature_image),
   };
 };
 

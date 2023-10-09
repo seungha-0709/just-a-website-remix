@@ -7,7 +7,6 @@ import {
   mail_bottom_sheet_container,
 } from "@/styles/mobileStyle.css";
 // import Lottie from "react-lottie";
-import Lottie from "lottie-react";
 import animationData from "@/assets/lottie/law.json";
 import clickAnimationData from "@/assets/lottie/click.json";
 import clickMainAnimationData from "@/assets/lottie/clickMain3.json";
@@ -34,7 +33,7 @@ import {
   Alert,
 } from "@mui/material";
 import CounselModal from "./CounselModal";
-import MainText from "@/assets/svgs/mainText";
+// import MainText from "@/assets/svgs/mainText";
 import DesktopMainText from "@/assets/svgs/DesktopMainText";
 import { main_banner_button, main_banner_button_text } from "@/styles/main.css";
 

@@ -5,7 +5,7 @@ export const successSection = style({
   height: 600,
   padding: 0,
   position: "absolute",
-  top: 2040,
+  top: 2240,
   boxSizing: "border-box",
   maxWidth: 1000,
   zIndex: 0,
@@ -39,8 +39,8 @@ export const success_title = style({
 });
 
 export const success_subtitle = style({
-  fontSize: 16,
-  fontWeight: 400,
+  fontSize: 18,
+  fontWeight: 500,
   color: root.color2.COLOR_03,
   lineHeight: 1.6,
   marginBottom: 20,

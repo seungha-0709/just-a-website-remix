@@ -40,21 +40,6 @@ export const blog_backgroundStyle = style({
   zIndex: 0,
 });
 
-export const blogSection = style({
-  background: root.color.WHITE,
-  width: "100%",
-  height: 944,
-  display: "flex",
-  overflow: "hidden",
-  boxSizing: "border-box",
-  position: "absolute",
-  top: 2440,
-  zIndex: 0,
-  flexDirection: "column",
-  justifyContent: "center",
-  borderRadius: "24px 24px 0 0",
-});
-
 export const titleText = style({
   fontSize: 20,
   fontWeight: 600,
@@ -86,106 +71,6 @@ export const main_content_text = style({
   // padding: "12px 32px",
 });
 
-export const blog_contents_container = style({
-  position: "absolute",
-  top: 0,
-  zIndex: 0,
-  height: 800,
-  margin: "0 28px",
-});
-
-export const blog_feature_container = style({
-  // boxShadow: "4px 4px 10px rgba(37, 33, 26, 0.4)",
-  borderRadius: 12,
-  height: 300,
-  padding: 24,
-  overflow: "hidden",
-  boxSizing: "border-box",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  position: "relative",
-  bottom: -40,
-  background: root.color2.COLOR_08,
-  margin: 20,
-});
-
-export const blog_section_title = style({
-  fontSize: 24,
-  fontWeight: 600,
-  position: "relative",
-  left: 6,
-  top: 30,
-  margin: 0,
-  textAlign: "left",
-  color: root.color2.BLACK,
-});
-
-export const blog_featured_title = style({
-  fontWeight: 600,
-  fontSize: 16,
-  color: root.color.COLOR_02,
-  marginBottom: 20,
-});
-
-export const blog_featured_content = style({
-  height: 160,
-  top: 100,
-  width: "80%",
-  overflow: "hidden",
-  fontSize: 14,
-  fontWeight: 200,
-  lineHeight: 1.4,
-  textOverflow: "ellipsis",
-  position: "absolute",
-  "::after": {
-    width: "100%",
-    height: 120,
-    content: "",
-    position: "absolute",
-    bottom: 0,
-    zIndex: 30,
-    background:
-      "linear-gradient(to bottom, rgba(239, 226, 194, 0), rgba(239, 226, 194, 1))",
-  },
-});
-
-export const blog_list_ul = style({
-  listStyle: "none",
-  margin: 0,
-  padding: 0,
-});
-
-export const blog_list_title = style({
-  margin: "0 0 8px 0",
-  // paddingLeft: 8,
-  paddingTop: 14,
-  fontWeight: 500,
-});
-
-export const blog_list_container = style({
-  width: "100%",
-  height: 200,
-  marginTop: 32,
-  overflow: "hidden",
-  position: "absolute",
-  bottom: 40,
-});
-
-export const blog_list_brief_content = style({
-  width: "100%",
-  textOverflow: "ellipsis",
-  lineClamp: 2,
-  height: 34,
-  // padding: "8px 8px 20px 8px",
-  // borderBottom: `1px solid ${root.color.COLOR_03}`,
-  overflow: "hidden",
-  fontSize: 14,
-  fontWeight: 200,
-  background:
-    "linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))",
-});
-
 export const place_backgroundStyle = style({
   width: "100%",
   height: "100%",
@@ -198,7 +83,7 @@ export const place_backgroundStyle = style({
 export const place_section = style({
   height: 500,
   position: "absolute",
-  top: 3160,
+  top: 3660,
   zIndex: 0,
   width: "100%",
 });

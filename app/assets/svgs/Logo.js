@@ -2,8 +2,8 @@ import * as React from "react";
 const SvgLogo = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={80}
-    height={30}
+    width={100}
+    height={60}
     fill="none"
     viewBox="0 0 116 50"
     {...props}

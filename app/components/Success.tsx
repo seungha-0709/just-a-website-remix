@@ -60,8 +60,8 @@ const SuccessItem = ({ onClick, selected, itemId, item }) => {
         <div style={{ height: 120, marginTop: 20 }}>
           <p
             style={{
-              fontSize: 14,
-              fontWeight: 600,
+              fontSize: 16,
+              fontWeight: 400,
               color: root.color2.RED_01,
               marginBottom: 8,
               marginTop: 0,
@@ -71,15 +71,13 @@ const SuccessItem = ({ onClick, selected, itemId, item }) => {
           </p>
           <p
             style={{
-              fontWeight: 600,
-              fontSize: 16,
+              fontWeight: 500,
+              fontSize: 18,
               color: root.color2.BLACK,
               position: "relative",
               zIndex: 40,
               height: 40,
-              WebkitLineClamp: 2,
-              overflow: "hidden",
-              textOverflow: "ellipsis",
+              margin: 0,
             }}
           >
             {item.contentObj.title}
@@ -96,23 +94,6 @@ const SuccessItem = ({ onClick, selected, itemId, item }) => {
           >
             {item.excerpt}
           </p> */}
-        </div>
-        <div
-          style={{
-            marginTop: 8,
-            background: "transparent",
-            color: root.color2.COLOR_04,
-            height: 20,
-            fontWeight: 400,
-            zIndex: 40,
-            fontSize: 14,
-            width: "100%",
-            display: "flex",
-            alignItems: "center",
-            flexDirection: "row-reverse",
-          }}
-        >
-          <NavigateNext /> more
         </div>
       </button>
     </a>

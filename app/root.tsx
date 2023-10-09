@@ -13,10 +13,13 @@ import {
   container,
   main_container,
 } from "./styles/layout.css";
+import { getPosts } from "@/utils/posts.server";
+import { PostsOrPages } from "@tryghost/content-api";
+import Lnb from "./components/Lnb";
 
-export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: cssBundleHref as string },
-];
+export const links: LinksFunction = () => {
+  return [{ rel: "stylesheet", href: cssBundleHref as string, as: "style" }];
+};
 
 interface DocumentProps {
   children: React.ReactNode;
@@ -24,6 +27,41 @@ interface DocumentProps {
 }
 
 export const loader = async () => {
+  const rawPosts = (await getPosts()) as PostsOrPages;
+
+  if (!rawPosts) {
+    return json({
+      featuredPosts: [],
+      posts: [],
+      success: [],
+    });
+  }
+
+  const posts = rawPosts.map((item) => {
+    const tagRegex = /\[([^\]]+)\]/g;
+    const titleRegex = /\]\s*(.*)/g;
+    const tag = tagRegex.exec(item.title)?.[1] || "";
+    const title = titleRegex.exec(item.title)?.[1] || "";
+
+    return {
+      id: item.id,
+      uuid: item.uuid,
+      slug: item.slug,
+      html: item.html,
+      updated_at: item.updated_at,
+      created_at: item.created_at,
+      feature_image: item.feature_image,
+      canonical_url: null,
+      tags: item.tags,
+      authors: item.authors,
+      url: item.url,
+      contentObj: {
+        tag: tag.trim(),
+        title: title.trim(),
+      },
+    };
+  });
+
   return json({
     ENV: {
       CONTENT_API_KEY: process.env.CONTENT_API_KEY,
@@ -31,6 +69,7 @@ export const loader = async () => {
       API_URL: process.env.API_URL,
       KAKAO_JS_KEY: process.env.KAKAO_JS_KEY,
     },
+    posts,
   });
 };
 
@@ -81,15 +120,15 @@ const Document = withEmotionCache(
 const Layout = ({ children }) => {
   return (
     <div className={container}>
-      <aside className={aside_left}>side</aside>
+      <aside className={aside_left}>
+        <Lnb />
+      </aside>
       <main className={main_container}>{children}</main>
-      <aside className={aside_right}>side</aside>
+      <aside className={aside_right}></aside>
     </div>
   );
 };
 
-// https://remix.run/api/conventions#default-export
-// https://remix.run/api/conventions#route-filenames
 export default function App() {
   return (
     <Document>
