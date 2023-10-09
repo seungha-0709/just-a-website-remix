@@ -1,3 +1,4 @@
+import React from "react";
 import {
   mainSection,
   main_title_area,
@@ -34,6 +35,8 @@ import {
 } from "@mui/material";
 import CounselModal from "./CounselModal";
 import MainText from "@/assets/svgs/mainText";
+import DesktopMainText from "@/assets/svgs/DesktopMainText";
+import { main_banner_button, main_banner_button_text } from "@/styles/main.css";
 
 const drawerBleeding = 56;
 
@@ -93,6 +96,8 @@ const clickMainOptions = {
 
 const SwipeableDrawer = styled(MuiSwipeableDrawer)(() => ({
   "& .MuiPaper-root": {
+    margin: "0 auto",
+    maxWidth: 1000,
     borderRadius: "20px 20px 0 0",
   },
 }));
@@ -114,29 +119,28 @@ const Main = () => {
 
   const shareButtonRef = useRef(null);
 
-  const handleKakaoClick = () => () => {
+  const handleKakaoClick = () => {
     setOpen(false);
     setIsClicked({
       ...isClicked,
       kakao: isClicked.kakao + 1,
     });
-    window.open("https://pf.kakao.com/_TsAxdG");
   };
 
-  const handleMailClick = () => () => {
-    setOpen(false);
+  const handleMailClick = () => {
+    console.log("??????");
+    setIsMailOpen(true);
   };
 
-  const handleTelClick = () => () => {
+  const handleTelClick = () => {
     setOpen(false);
     setIsClicked({
       ...isClicked,
       tel: isClicked.tel + 1,
     });
-    window.location.href = "tel:01079340883";
   };
 
-  const handleMailSubmitComplete = () => () => {
+  const handleMailSubmitComplete = () => {
     setIsClicked({
       ...isClicked,
       mail: isClicked.mail + 1,
@@ -238,7 +242,7 @@ const Main = () => {
               position: "absolute",
               bottom: -500,
               right: 0,
-              maxHeight: 768,
+              maxWidth: 520,
               zIndex: 0,
             }}
           />
@@ -246,10 +250,9 @@ const Main = () => {
             style={{
               color: root.color2.COLOR_05,
               fontWeight: 500,
-              fontSize: 14,
-              marginBottom: 16,
+              fontSize: 16,
               position: "absolute",
-              right: 0,
+              left: 20,
             }}
           >
             최고의 전문가가 함께합니다
@@ -257,21 +260,21 @@ const Main = () => {
           <div style={{ position: "absolute", left: 0, top: -9 }}>
             {/* <Lottie option={defaultOptions} height={100} width={150} /> */}
           </div>
-          <div style={{ position: "absolute", right: 0, top: 30 }}>
-            <MainText />
+          <div style={{ position: "absolute", left: 20, top: 48 }}>
+            {/* <MainText /> */}
+            <DesktopMainText />
           </div>
 
           <p
             style={{
               color: root.color2.GRAY_02,
               fontWeight: 500,
-              fontSize: 16,
+              fontSize: 18,
               marginTop: 28,
               lineHeight: 1.5,
               position: "relative",
-              right: 0,
-              top: 130,
-              textAlign: "right",
+              top: 180,
+              left: 20,
               zIndex: 5,
             }}
           >
@@ -285,8 +288,8 @@ const Main = () => {
           <Button
             style={{
               position: "absolute",
-              right: 0,
-              top: 160,
+              left: 20,
+              top: 260,
               fontSize: 14,
               fontWeight: 400,
               height: 42,
@@ -336,73 +339,64 @@ const Main = () => {
           flexDirection: "row",
         }}
       >
-        <Button
-          id="tel"
-          style={{
-            display: "block",
-            margin: "0px",
-            width: "50%",
-            height: 150,
-            borderRadius: 16,
-            padding: "0 16px",
-            textAlign: "left",
-            position: "relative",
-            color: root.color.WHITE,
-            background: root.color2.BLACK,
-            // border: `2px solid ${root.color2.COLOR_04}`,
-          }}
-          onClick={handleTelClick}
-        >
-          <div style={{ position: "absolute", top: 0, right: 0 }}>
-            <IconPhone />
-          </div>
-          <div style={{ position: "absolute", top: 80, right: 12 }}>
-            {/* <Lottie options={clickOptions} height={60} width={38} /> */}
-          </div>
+        <a id="tel" href="tel:01079340883" className={main_banner_button}>
+          <div onClick={handleTelClick}>
+            <div style={{ position: "absolute", top: 0, right: 0 }}>
+              <IconPhone />
+            </div>
+            <div style={{ position: "absolute", top: 80, right: 12 }}>
+              {/* <Lottie options={clickOptions} height={60} width={38} /> */}
+            </div>
 
-          <br />
-          <br />
-          <br />
-          <span style={{ textAlign: "left" }}>
-            무료
-            <br />
-            전화 상담
-          </span>
-        </Button>
-        <Button
+            <p className={main_banner_button_text}>
+              무료
+              <br />
+              전화 상담
+            </p>
+          </div>
+        </a>
+
+        <a
           id="kakao"
-          onClick={handleKakaoClick}
-          style={{
-            display: "block",
-            margin: "0px",
-            width: "50%",
-            height: 150,
-            borderRadius: 16,
-            padding: "0px 16px",
-            textAlign: "left",
-            position: "relative",
-            color: root.color.WHITE,
-            background: root.color2.BLACK,
-            // border: `2px solid ${root.color2.COLOR_04}`,
-          }}
+          href="https://pf.kakao.com/_TsAxdG"
+          className={main_banner_button}
+          target="_blank"
         >
-          <div style={{ position: "absolute", top: 0, right: 8 }}>
-            <IconKakaotalk />
+          <div onClick={handleKakaoClick}>
+            <div style={{ position: "absolute", top: 0, right: 8 }}>
+              <IconKakaotalk />
+            </div>
+            <div style={{ position: "absolute", top: 80, right: 12 }}>
+              {/* <Lottie options={clickOptions} height={60} width={38} /> */}
+            </div>
+            <p className={main_banner_button_text}>
+              무료
+              <br />
+              카카오톡 상담
+            </p>
           </div>
-          <div style={{ position: "absolute", top: 80, right: 12 }}>
-            {/* <Lottie options={clickOptions} height={60} width={38} /> */}
+        </a>
+
+        <div id="mail" onClick={handleMailClick} className={main_banner_button}>
+          <div>
+            <div style={{ position: "absolute", top: 0, right: 0 }}>
+              <IconPhone />
+            </div>
+            <div style={{ position: "absolute", top: 80, right: 12 }}>
+              {/* <Lottie options={clickOptions} height={60} width={38} /> */}
+            </div>
+
+            <p className={main_banner_button_text}>
+              무료
+              <br />
+              메일 상담
+            </p>
           </div>
-          <br />
-          <br />
-          <br />
-          무료
-          <br />
-          카카오톡 상담
-        </Button>
+        </div>
       </div>
       <SwipeableDrawer
         anchor="bottom"
-        onOpen={() => console.log("ddd")}
+        onOpen={() => setIsMailOpen(true)}
         open={isMailOpen}
         onClose={() => setIsMailOpen(false)}
         swipeAreaWidth={drawerBleeding}

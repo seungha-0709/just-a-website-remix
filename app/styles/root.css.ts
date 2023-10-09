@@ -1,10 +1,16 @@
-import { createGlobalTheme, globalStyle } from "@vanilla-extract/css";
+import { createGlobalTheme, globalStyle, style } from "@vanilla-extract/css";
 import { pretendard } from "./fonts.css";
+
+globalStyle("*", {
+  fontFamily: pretendard,
+  fontWeight: 400,
+});
 
 globalStyle("html, body", {
   margin: 0,
   padding: 0,
   fontFamily: pretendard,
+  fontWeight: 400,
 });
 
 globalStyle("a", {
@@ -15,10 +21,18 @@ globalStyle("em", {
   fontStyle: "normal",
 });
 
-export const root = createGlobalTheme(":root", {
-  font: {
-    body: "pretendard",
+export const text = style({
+  fontFamily: pretendard,
+  fontSize: 16,
+  letterSpacing: 0.5,
+  "@media": {
+    "screen and (max-width: 768px)": {
+      fontSize: 14,
+    },
   },
+});
+
+export const root = createGlobalTheme(":root", {
   color: {
     BLACK: "#000000",
     COLOR_01: "#15130F",

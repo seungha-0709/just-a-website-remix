@@ -7,9 +7,15 @@ import { withEmotionCache } from "@emotion/react";
 import { unstable_useEnhancedEffect as useEnhancedEffect } from "@mui/material";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import {
+  aside_left,
+  aside_right,
+  container,
+  main_container,
+} from "./styles/layout.css";
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: cssBundleHref },
+  { rel: "stylesheet", href: cssBundleHref as string },
 ];
 
 interface DocumentProps {
@@ -74,10 +80,10 @@ const Document = withEmotionCache(
 
 const Layout = ({ children }) => {
   return (
-    <div>
-      <aside>side</aside>
-      <main>{children}</main>
-      <aside>side</aside>
+    <div className={container}>
+      <aside className={aside_left}>side</aside>
+      <main className={main_container}>{children}</main>
+      <aside className={aside_right}>side</aside>
     </div>
   );
 };

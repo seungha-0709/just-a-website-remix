@@ -1,20 +1,20 @@
-import React from "react";
-
 import Lottie from "react-lottie";
 import * as animationData from "@/assets/lottie/success.json";
 import { useDraggable } from "react-use-draggable-scroll";
 import { useState, useRef, useEffect } from "react";
 import { root } from "@/styles/root.css";
 import { getBlogUrl } from "@/data/util";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext.js";
+import { NavigateNext } from "@mui/icons-material";
 import { useRouteLoaderData } from "@remix-run/react";
 import {
   successSection,
   success_content_area,
   success_example_item,
+  success_item_container,
+  success_item_content_container,
   success_subtitle,
   success_title,
-} from "@/styles/mobileStyle.css";
+} from "@/styles/success.css";
 
 const defaultOptions = {
   loop: true,
@@ -64,6 +64,7 @@ const SuccessItem = ({ onClick, selected, itemId, item }) => {
               fontWeight: 600,
               color: root.color2.RED_01,
               marginBottom: 8,
+              marginTop: 0,
             }}
           >
             {item.contentObj.tag}
@@ -83,17 +84,18 @@ const SuccessItem = ({ onClick, selected, itemId, item }) => {
           >
             {item.contentObj.title}
           </p>
-          {/* {item.contentObj.text && (
-            <p
-              className="success_item_brief"
-              style={{
-                marginTop: 12,
-                color: "#717171",
-                fontSize: 12,
-                fontWeight: 400,
-              }}
-            ></p>
-          )} */}
+          {/* <p
+            className="success_item_brief"
+            // dangerouslySetInnerHTML={{ __html: item.html }}
+            style={{
+              marginTop: 12,
+              color: "#717171",
+              fontSize: 12,
+              fontWeight: 400,
+            }}
+          >
+            {item.excerpt}
+          </p> */}
         </div>
         <div
           style={{
@@ -110,7 +112,7 @@ const SuccessItem = ({ onClick, selected, itemId, item }) => {
             flexDirection: "row-reverse",
           }}
         >
-          {/* <NavigateNextIcon /> more */}
+          <NavigateNext /> more
         </div>
       </button>
     </a>
@@ -144,9 +146,9 @@ const Success = () => {
         {/* <Lottie options={defaultOptions} height={150} width={150} /> */}
       </div>
       <div className={success_content_area}>
-        <h2 className={success_title}>
-          <a href={`/success`}>변호 승소 & 성공 사례</a>
-        </h2>
+        <a href={`/success`}>
+          <h2 className={success_title}>변호 승소 & 성공 사례</h2>
+        </a>
         <h3 className={success_subtitle}>
           공정한 변호사들이
           <br />
@@ -155,24 +157,11 @@ const Success = () => {
           당신만을 위해 싸운 결과입니다.
         </h3>
         <div
+          className={success_item_container}
           ref={imageContainerRef}
           {...events}
-          style={{
-            width: "100%",
-            height: 400,
-            marginTop: 20,
-            overflowX: "scroll",
-          }}
         >
-          <div
-            style={{
-              width: "fit-content",
-              display: "flex",
-              flexWrap: "nowrap",
-              gap: 32,
-              padding: "0px",
-            }}
-          >
+          <div className={success_item_content_container}>
             {success.map((item, index) => {
               return (
                 <SuccessItem

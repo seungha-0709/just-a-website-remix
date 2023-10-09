@@ -1,3 +1,4 @@
+import React from "react";
 import { jeongJinKwon, kongJiYeon } from "@/data/profile";
 import {
   profileSection,
@@ -9,7 +10,8 @@ import {
   li_span,
   profile_kong,
   profile_jeong,
-} from "@/styles/mobileStyle.css";
+  profile_title_name,
+} from "@/styles/profile.css";
 import { root } from "@/styles/root.css";
 
 const Profile = () => {
@@ -17,7 +19,7 @@ const Profile = () => {
     <section className={profileSection}>
       <div id="profile_mobile" className={profile_kong}>
         <div className={profile_title_text}>
-          변호사 <em className={name}>공 지 연</em>
+          변호사 <em className={profile_title_name}>공 지 연</em>
           <div
             style={{
               width: 100,

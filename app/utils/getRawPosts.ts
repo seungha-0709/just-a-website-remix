@@ -11,8 +11,8 @@ export const getRawPosts = async () => {
   const posts = rawPosts.map((item) => {
     const tagRegex = /\[([^\]]+)\]/g;
     const titleRegex = /\]\s*(.*)/g;
-    const tag = tagRegex.exec(item.title)?.[1] || "";
-    const title = titleRegex.exec(item.title)?.[1] || "";
+    const tag = tagRegex.exec(item.title!)?.[1] || "";
+    const title = titleRegex.exec(item.title!)?.[1] || "";
 
     return {
       id: item.id,

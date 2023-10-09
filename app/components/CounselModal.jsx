@@ -6,7 +6,10 @@ import {
 import Button from "@/components/ui/Button";
 import { useState, useRef, useEffect } from "react";
 import { root } from "@/styles/root.css";
-// import { send_email_form } from "@/styles/style.css";
+import {
+  send_email_form,
+  mail_bottom_sheet_submit_button,
+} from "@/styles/main.css";
 import emailjs from "@emailjs/browser";
 
 const Dialog = styled(MuiDialog)(() => ({
@@ -183,28 +186,14 @@ const CounselModal = ({ onClose, isRender, onOpenSnackbar }) => {
             </p>
           </div>
 
-          <div
-            style={{
-              position: "fixed",
-              bottom: 0,
-              width: "calc(100% - 40px)",
-              height: 80,
-              background: root.color.WHITE,
-            }}
+          <Button
+            type="submit"
+            id="mail_submit"
+            className={mail_bottom_sheet_submit_button}
+            disabled={!userInfo.content || !userInfo.email || !userInfo.name}
           >
-            <Button
-              type="submit"
-              id="mail_submit"
-              style={{
-                position: "fixed",
-                bottom: 20,
-                width: "calc(100% - 40px)",
-              }}
-              disabled={!userInfo.content || !userInfo.email || !userInfo.name}
-            >
-              문의하기
-            </Button>
-          </div>
+            문의하기
+          </Button>
         </form>
       </div>
     </>

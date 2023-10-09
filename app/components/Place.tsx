@@ -1,8 +1,5 @@
-import {
-  place_content_area,
-  place_section,
-  success_title,
-} from "@/styles/mobileStyle.css";
+import React from "react";
+import { place_content_area, place_section } from "@/styles/mobileStyle.css";
 import Lottie from "react-lottie";
 // import * as animationData from "@/assets/lottie/map.json";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
@@ -29,12 +26,7 @@ const Place = () => {
         {/* <Lottie options={defaultOptions} height={180} width={180} /> */}
       </div>
       <div className={place_content_area}>
-        <h2
-          style={{ color: root.color.COLOR_01, marginTop: 0 }}
-          className={success_title}
-        >
-          오시는 길
-        </h2>
+        <h2 style={{ color: root.color.COLOR_01, marginTop: 0 }}>오시는 길</h2>
         <p
           style={{
             color: root.color.COLOR_04,

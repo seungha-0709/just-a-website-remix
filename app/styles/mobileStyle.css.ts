@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { root } from "./root.css";
+import { root, text } from "./root.css";
 
 export const header = style({
   width: "100svw",
@@ -30,72 +30,6 @@ export const contents = style({
   background: root.color.WHITE,
 });
 
-export const profile_kong_backgroundStyle = style({
-  width: "100%",
-  height: 200,
-  objectFit: "cover",
-  objectPosition: "0% 65%",
-  background: root.color.COLOR_01,
-  zIndex: 0,
-  borderRadius: "24px 0 0 24px",
-  // boxShadow: "0px 0px 10px rgba(198, 185, 153, 0.4)",
-  boxShadow: "4px 4px 20px rgba(0, 0, 0, 0.8)",
-});
-
-export const profileSection = style({
-  width: "100%",
-  height: "fit-content",
-  // position: "absolute",
-  position: "absolute",
-  top: 890,
-  display: "flex",
-  gap: 0,
-  // top: -48,
-  zIndex: 0,
-  // borderRadius: "24px 24px 0 0",
-  overflow: "hidden",
-  flexDirection: "column",
-  // background: root.color.COLOR_04,
-  letterSpacing: 1.2,
-  fontWeight: 200,
-  boxSizing: "border-box",
-});
-
-export const profile_kong = style({
-  padding: "50px 30px 50px 30px",
-  position: "relative",
-  display: "flex",
-  flexDirection: "column",
-  zIndex: 0,
-  borderRadius: 12,
-  margin: 20,
-  background: root.color2.COLOR_01,
-});
-
-export const profile_jeong_backgroundStyle = style({
-  width: "100%",
-  height: "100%",
-  objectFit: "cover",
-  objectPosition: "100% 25%",
-  background: root.color.COLOR_02,
-  zIndex: 0,
-  left: 100,
-  borderRadius: "0 24px 24px 0",
-  // boxShadow: "0px 0px 10px rgba(198, 185, 153, 0.4)",
-  boxShadow: "4px 4px 20px rgba(0, 0, 0, 0.8)",
-});
-
-export const profile_jeong = style({
-  background: root.color.COLOR_06,
-  padding: "50px 30px",
-  position: "relative",
-  top: -20,
-  zIndex: 1,
-  borderRadius: 12,
-  margin: 20,
-  boxSizing: "border-box",
-});
-
 export const blog_backgroundStyle = style({
   objectFit: "cover",
   height: 300,
@@ -124,62 +58,6 @@ export const blogSection = style({
 export const titleText = style({
   fontSize: 20,
   fontWeight: 600,
-});
-
-export const profile_container = style({
-  width: "100%",
-  height: "100%",
-  display: "flex",
-});
-
-export const profile_title_text = style({
-  fontSize: 18,
-  fontWeight: 400,
-  marginTop: 0,
-  marginBottom: 36,
-  color: root.color.COLOR_08,
-  selectors: {
-    ["em &"]: {
-      fontSize: 24,
-      fontWeight: 600,
-      fontStyle: "normal",
-    },
-  },
-});
-
-export const flex = style({
-  display: "flex",
-  gap: 40,
-});
-
-export const name = style({
-  fontSize: 28,
-  fontWeight: 600,
-});
-
-export const ul = style({
-  listStyle: "none",
-  padding: 0,
-  boxSizing: "border-box",
-  margin: 0,
-  fontSize: 14,
-  letterSpacing: 0,
-  width: "100%",
-});
-
-export const li_span = style({
-  fontWeight: 400,
-  color: root.color.WHITE,
-  display: "block",
-  width: "fit-content",
-  margin: "12px 0",
-});
-export const li_strong = style({
-  fontWeight: 300,
-  marginBottom: 4,
-  display: "block",
-  letterSpacing: 0,
-  color: root.color.COLOR_09,
 });
 
 export const main_title_area = style({
@@ -308,26 +186,6 @@ export const blog_list_brief_content = style({
     "linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))",
 });
 
-export const successBackgroundStyle = style({
-  width: "100%",
-  height: "100%",
-  objectFit: "cover",
-  zIndex: 0,
-  objectPosition: "50%, 0%",
-  borderRadius: "24px 24px 0 0",
-});
-export const successSection = style({
-  width: "100%",
-  height: 600,
-  padding: 20,
-  position: "absolute",
-  top: 1920,
-  zIndex: 0,
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-});
-
 export const place_backgroundStyle = style({
   width: "100%",
   height: "100%",
@@ -391,62 +249,6 @@ export const main_title_name = style({
 
 export const main_title_main_text = style({
   fontSize: 20,
-});
-
-export const success_content_area = style({
-  width: "100%",
-  height: "fit-content",
-  position: "relative",
-  zIndex: 0,
-  display: "flex",
-  // justifyContent: "center",
-  // alignItems: "center",
-  flexDirection: "column",
-});
-
-export const success_title = style({
-  fontSize: 24,
-  fontWeight: 500,
-  color: root.color.COLOR_03,
-  marginTop: 0,
-  marginBottom: 0,
-  textAlign: "left",
-  paddingLeft: 20,
-});
-
-export const success_subtitle = style({
-  fontSize: 16,
-  fontWeight: 400,
-  color: root.color2.COLOR_03,
-  lineHeight: 1.6,
-  marginBottom: 20,
-  marginTop: 20,
-  textAlign: "left",
-  paddingLeft: 20,
-});
-
-export const success_example_container = style({
-  display: "flex",
-  width: "fit-content",
-  height: 500,
-  gap: 20,
-  alignItems: "center",
-  position: "relative",
-  justifyContent: "center",
-});
-
-export const success_example_item = style({
-  width: 200,
-  height: 320,
-  textAlign: "left",
-  color: root.color.WHITE,
-  display: "flex",
-  justifyContent: "stretch",
-  overflow: "hidden",
-  cursor: "pointer",
-  position: "relative",
-  border: "none",
-  flexDirection: "column",
 });
 
 export const desktop_container = style({

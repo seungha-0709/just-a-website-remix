@@ -6,7 +6,6 @@ const Button = styled(MuiButton)({
   textTransform: "none",
   fontSize: 16,
   fontWeight: 500,
-  fontFamily: "Pretendard",
   borderRadius: 24,
   padding: "12px 48px",
   height: 48,
