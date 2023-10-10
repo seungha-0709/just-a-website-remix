@@ -20,6 +20,7 @@ import woman from "@/assets/photo/woman.jpg";
 import man from "@/assets/photo/man.jpg";
 import startup from "@/assets/photo/startup.jpg";
 import create from "@/assets/photo/create.jpg";
+import working from "@/assets/photo/working.jpg";
 
 // const animationOptions = {
 //   loop: true,

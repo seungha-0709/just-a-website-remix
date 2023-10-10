@@ -16,6 +16,9 @@ import {
 import { getPosts } from "@/utils/posts.server";
 import { PostsOrPages } from "@tryghost/content-api";
 import Lnb from "./components/Lnb";
+import { CacheProvider } from "@emotion/react";
+import createEmotionCache from "@/styles/createEmotionCache";
+import createEmotionServer from "@emotion/server/create-instance";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: cssBundleHref as string, as: "style" }];

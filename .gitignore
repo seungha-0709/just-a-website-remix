@@ -1,6 +1,23 @@
-.env
+# We don't want lockfiles in stacks, as people could use a different package manager
+# This part will be removed by `remix.init`
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+pnpm-lock.yml
+
 node_modules
-build
-public/build
+
+/public/build
+/server/index.mjs
+/server/index.mjs.map
+/server/metafile.*
+/server/version.txt
+preferences.arc
+sam.json
+sam.yaml
+.env
+
 .cache
-yarn-error.log
+
+/cypress/screenshots
+/cypress/videos

@@ -6,7 +6,6 @@ import Place from "@/components/Place";
 import Profile from "@/components/Profile";
 import Blogs from "@/components/Blogs";
 import { json } from "@remix-run/node";
-import HTMLParser from "html-to-json-parser";
 
 export const loader = async ({ context }) => {
   const rawPosts = (await getPosts()) as PostsOrPages;
