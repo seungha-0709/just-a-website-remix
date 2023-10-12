@@ -127,7 +127,6 @@ const Main = () => {
   };
 
   const handleMailClick = () => {
-    console.log("??????");
     setIsMailOpen(true);
   };
 
@@ -198,7 +197,6 @@ const Main = () => {
         convType: "etc",
         click: "#tel",
       });
-      console.log("???");
     }
   }, [isClicked.tel]);
 

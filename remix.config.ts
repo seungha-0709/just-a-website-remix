@@ -6,7 +6,7 @@ export default {
   ignoredRouteFiles: ["**/.*", "**/*.test.{js,jsx,ts,tsx}"],
   publicPath: "/_static/build/",
   server: "server.ts",
-  serverBuildPath: "server/index.mjs",
+  serverBuildPath: "build/index.mjs",
   serverModuleFormat: "esm",
   routes: (defineRoutes) =>
     defineRoutes((route) => {

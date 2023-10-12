@@ -38,7 +38,6 @@ const Blogs = () => {
 
   const featuredPost = featuredPosts?.[0];
 
-  console.log(featuredPost);
   const css = (content) => {
     return `
     <div>

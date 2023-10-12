@@ -11,6 +11,9 @@ import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import isbot from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
+import { CacheProvider } from "@emotion/react";
+import createEmotionCache from "@/styles/createEmotionCache";
+import { bootstrapScript } from "./bootstrapScript"
 
 const ABORT_DELAY = 5_000;
 
@@ -42,13 +45,17 @@ function handleBotRequest(
   remixContext: EntryContext,
 ) {
   return new Promise((resolve, reject) => {
+    const cache = createEmotionCache()
     const { abort, pipe } = renderToPipeableStream(
+      <CacheProvider value={cache}>
       <RemixServer
         context={remixContext}
         url={request.url}
         abortDelay={ABORT_DELAY}
-      />,
+      />
+      </CacheProvider>,
       {
+        bootstrapModules: ['bootstrapScript.ts'],
         onAllReady() {
           const body = new PassThrough();
 
@@ -84,12 +91,16 @@ function handleBrowserRequest(
   remixContext: EntryContext,
 ) {
   return new Promise((resolve, reject) => {
+    const cache = createEmotionCache()
+
     const { abort, pipe } = renderToPipeableStream(
+      <CacheProvider value={cache}>
       <RemixServer
         context={remixContext}
         url={request.url}
         abortDelay={ABORT_DELAY}
-      />,
+      />
+      </CacheProvider>,
       {
         onShellReady() {
           const body = new PassThrough();

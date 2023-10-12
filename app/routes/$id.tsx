@@ -14,8 +14,6 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
 const SuccessItemPage = () => {
   const { id, post } = useLoaderData<typeof loader>();
 
-  console.log("post", post);
-
   const css = (content) => {
     return `
       <div>

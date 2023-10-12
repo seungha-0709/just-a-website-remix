@@ -1,6 +1,6 @@
 {
   "exclude": ["./cypress", "./cypress.config.ts"],
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", "server/index.mjs"],
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", "build/index.mjs"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "isolatedModules": true,

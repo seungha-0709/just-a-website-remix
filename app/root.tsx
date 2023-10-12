@@ -1,12 +1,18 @@
 import React from "react";
-import { Links, Meta, Outlet, Scripts, LiveReload } from "@remix-run/react";
+import {
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  LiveReload,
+  useLoaderData,
+} from "@remix-run/react";
 import { cssBundleHref } from "@remix-run/css-bundle";
 import ClientStylesContext from "./styles/ClientStylesContext";
 import type { LinksFunction } from "@remix-run/node";
 import { withEmotionCache } from "@emotion/react";
 import { unstable_useEnhancedEffect as useEnhancedEffect } from "@mui/material";
 import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
 import {
   aside_left,
   aside_right,
@@ -14,11 +20,8 @@ import {
   main_container,
 } from "./styles/layout.css";
 import { getPosts } from "@/utils/posts.server";
-import { PostsOrPages } from "@tryghost/content-api";
+import type { PostsOrPages } from "@tryghost/content-api";
 import Lnb from "./components/Lnb";
-import { CacheProvider } from "@emotion/react";
-import createEmotionCache from "@/styles/createEmotionCache";
-import createEmotionServer from "@emotion/server/create-instance";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: cssBundleHref as string, as: "style" }];
