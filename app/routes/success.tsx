@@ -22,8 +22,8 @@ export const loader = async ({ context }) => {
 };
 
 const SuccessPage = () => {
-  // const data = useLoaderData<typeof loader>();
-  const data = useRouteLoaderData<any>("routes/_index");
+  const data = useLoaderData<typeof loader>();
+  // const data = useRouteLoaderData<any>("routes/_index");
 
   const success = data.success;
 
