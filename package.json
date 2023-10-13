@@ -12,7 +12,10 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "remix build",
+    "add-staging-env": "npx arc env --add --env staging ARC_APP_SECRET $(openssl rand -hex 32) && npx arc env --add --env staging SESSION_SECRET $(openssl rand -hex 32)",
+    "add-prod-env": "npx arc env --add --env production ARC_APP_SECRET $(openssl rand -hex 32) && npx arc env --add --env production ARC_APP_SECRET $(openssl rand -hex 32)",
+    "add-aws-region": "npx arc env --add --env production AWS_REGION ap-northeast-2",
+    "build": "remix build && yarn add-staging-env && yarn add-prod-env && yarn-aws-region",
     "dev": "remix dev",
     "format": "prettier --write .",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
