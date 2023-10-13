@@ -11,8 +11,7 @@ sam.yaml
 
 .cache
 
-/build
-/public
+public
 
 /cypress/screenshots
 /cypress/videos
