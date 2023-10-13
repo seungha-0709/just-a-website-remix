@@ -1,5 +1,5 @@
 @app
-JinkwonRemix
+jinkwon-remix
 
 @aws
 runtime nodejs18.x
