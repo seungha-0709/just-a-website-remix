@@ -15,7 +15,7 @@
     "dev": "remix dev -c \"node server.mjs\"",
     "build": "remix build",
     "icons": "npx @svgr/cli --out-dir app/assets/svgs -- app/assets/svgs",
-    "start": "remix build"
+    "start": "remix dev -c \"node server.mjs\""
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
